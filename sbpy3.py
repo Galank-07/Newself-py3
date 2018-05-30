@@ -29,57 +29,57 @@ backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 #====================================
 
-helpMessage =""" ༺༽།☤ⵓః•LIβΣRΔTI⌬Π•ఃⵓ☤།༼༻
-╭════════╬♥╬════════╮
-                       ʜᴇʟᴘ menu
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-║♪「Myhelp」
-║♪「Me」
-║♪「 Mymid」
-║♪「 Myname」
-║♪「 Mybio」
-║♪「 Mypicture」
-║♪「 Myvideoprofile」
-║♪「 Mycover」
-║♪「 Stealprofile「@」
-║♪「Unsend me」
-║♪「 Getsq」
-║♪「Lc 「@」
-║♪「 Gc 「@」
-║♪「 Sticker: 「angka」
-║♪「 Yt: 「text」
-║♪「 Image: 「text」
-║♪「Gcreator」
-║♪「Say: text」
-║♪「 Apakah text」
-║♪「 Sytr: text」
-║♪「 Tr: text」
-║♪「 Speed」
-║♪「 Spic @」
-║♪「 Scover @」
-║♪「 Tagall」
-║♪「 Ceksider」
-║♪「 Offread」
-║♪「Listgroup」
-║♪「 Restart」
-║♪「 Friendlist」
-║♪「 Cloneprofile @」
-║♪「 Restoreprofile」
-║♪「 Lurking on」
-║♪「 Lurking」
-║♪「 lurking off」
-║♪「 Lurking reset」
-║♪「 kick @」
-║♪「 Mode:self」
-║♪「 Mode:public」
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-          🔪JANGAN ADA TYPO 🔪
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-     http://line.me/ti/p/KTS6MCiOZe
-╰════════╬♥╬════════╯
+helpMessage ="""╭════════╬╬════════╮
+        ʜᴇʟᴘ menu
+╰════════╬╬════════╯
+╭════════╬╬════════╮
+╠⎆ Me
+╠⎆ Mymid
+╠⎆ Myname
+╠⎆ Mybio
+╠⎆ Mypicture
+╠⎆ Myvideoprofile
+╠⎆ Mycover
+╠⎆ Stealprofile「@」
+╠⎆ Unsend me
+╠⎆ Getsq
+╠⎆ Lc 「@」
+╠⎆ Gc 「@」
+╠⎆ Sticker: 「angka」
+╠⎆ Yt: 「text」
+╠⎆ Image: 「text」
+╠⎆ Gcreator
+╠⎆ Say: 「text」
+╠⎆ Apakah 「text」
+╠⎆ Sytr: 「text」
+╠⎆ Tr: 「text」
+╠⎆ Speed
+╠⎆ Pict 「@」
+╠⎆ Cover 「@」
+╠⎆ Tagall
+╠⎆ Ceksider
+╠⎆ Offread
+╠⎆ Listgroup
+╠⎆ Restart
+╠⎆ Friendlist
+╠⎆ Cloneprofile 「@」
+╠⎆ Restoreprofile
+╠⎆ Lurking 「on/off」
+╠⎆ Lurking
+╠⎆ Invgroupcall
+╠⎆ Lurking reset
+╠⎆ kick 「@」
+╠⎆ Self on
+╠⎆ Public on
+╠⎆ Public
+╰════════╬╬════════╯
+╭════════╬╬════════╮
+╠⎆ CRΣΔTΩR βΨ:
+╠⎆ 『✍͡➴͜Ĝα₤αηĸ͜͡✫』
+╠⎆ sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ  : 
+╠⎆ TΣΔM SLΔCҜβΩT
+╰════════╬╬════════╯
+line.me/ti/p/~fuck.you__
 """
 
 poll = LinePoll(client)
@@ -234,8 +234,8 @@ while True:
                                gid = client.getGroupIdsJoined()
                                h = ""
                                for i in gid:
-                                h += "[>] %s  \n" % (client.getGroup(i).name + " | 「Members 」: " + str(len (client.getGroup(i).members)))
-                               client.sendText(msg.to, ">>>>「Group List」<<<<\n"+ h +">>>>「Total Group」 : " +str(len(gid)))
+                                h += "「⏣」 %s  \n" % (client.getGroup(i).name + " | 「Members 」: " + str(len (client.getGroup(i).members)))
+                               client.sendText(msg.to, "⊙「Group List」⊙\n"+ h +"⊙「Total Group」 : " +str(len(gid)))
 #===================================================
                             elif text.lower() == 'unsend me':
                                 client.unsendMessage(msg_id)
@@ -339,7 +339,7 @@ while True:
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
 #============================================================#HELPSTART#=========================================================#
-                            elif text.lower() == 'myhelp':
+                            elif text.lower() == 'key':
                                 client.sendText(msg.to,helpMessage)
                                 print ("[COMMAND] HELP")
                                 
@@ -428,10 +428,10 @@ while True:
                                     client.sendText(receiver, str(e))
                             elif text.lower() == 'speed':
                                 start = time.time()
-                                client.sendText(receiver, "TestSpeed")
+                                client.sendText(receiver, "██████████████99%Complete...")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'pict' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -442,7 +442,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'cover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -519,10 +519,10 @@ while True:
                                     client.sendText(receiver, cctv['sidermem'][msg.to])
                                 else:
                                     client.sendText(receiver, "Heh belom di Set")
-                            elif text.lower() == 'mode:self':
+                            elif text.lower() == 'self on':
                                 mode = 'self'
                                 client.sendText(receiver, 'Mode Public Off')
-                            elif text.lower() == 'mode:public':
+                            elif text.lower() == 'public on':
                                 mode = 'public'
                                 client.sendText(receiver, 'Mode Public ON')
                             elif text.lower() == 'restart':
@@ -664,7 +664,7 @@ while True:
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
 #=========================================================================================================================================#
-            elif mode == 'public' and op.type == 26:
+            elif mode == 'public ' and op.type == 26:
                 msg = op.message
                 text = msg.text
                 msg_id = msg.id
@@ -759,10 +759,10 @@ while True:
                                     client.sendText(receiver, str(e))
                             elif text.lower() == 'speed':
                                 start = time.time()
-                                client.sendText(receiver, "TestSpeed")
+                                client.sendText(receiver, "██████████████99%Complete...")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'pict' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -773,7 +773,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'cover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
