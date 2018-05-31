@@ -169,17 +169,19 @@ while True:
             #if op.type in OpType._VALUES_TO_NAMES:
             #    print("[ {} ] {}".format(str(op.type), str(OpType._VALUES_TO_NAMES[op.type])))
 #=========================================================================================================================================#
+#╚════════════●
+#    return helpMessageKick
 def lineBot(op):
     try:
         if op.type == 0:
             return
         if op.type == 5:
-            contact = Galank.getContact(op.param1)
+            contact = araragi.getContact(op.param1)
             print ("[ 5 ] Notice Add Contact : " + contact.displayName)
             if settings["autoAdd"] == True:
-                Galank.findAndAddContactsByMid(op.param1)
-                Galank.sendMessage(op.param1, "Terimakasih Telah Invite 👌😳".format(str(contact.displayName)))
-                Galank.sendMessage(op.param1, "Jangan Nakalin saia, Saia Masih polos kakak 😳")
+                araragi.findAndAddContactsByMid(op.param1)
+                araragi.sendMessage(op.param1, "Terimakasih Telah Invite 👌😳".format(str(contact.displayName)))
+                araragi.sendMessage(op.param1, "Jangan Nakalin dedek,  Achu Masih polos kakak 😳^^")
         if op.type == 11:
             group = Galank.getGroup(op.param1)
             contact = Galank.getContact(op.param2)
