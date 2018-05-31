@@ -65,7 +65,8 @@ helpMessage ="""
 ╠⎆ Speed
 ╠⎆ Pict @
 ╠⎆ Cover @
-╠⎆ Sc @
+╠⎆ Sc 
+╠⎆ Creator
 ╠⎆ Tagall
 ╠⎆ Ceksider
 ╠⎆ Offread
