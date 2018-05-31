@@ -171,17 +171,6 @@ while True:
                             if text.lower() == 'me':
                                 client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
 #----------------------------------------------------------
-            elif msg.text.lower() in ["me"]:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': msg.from_}
-                client.sendMessage(msg)
-                h = client.getContact(msg.from_)
-                client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + h.pictureStatus)
-                h = client.getContact(msg.from_)
-                cu = client.channel.getCover(msg.from_)          
-                path = str(cu)
-                client.sendImageWithURL(msg.to, path)
-#-------------
                             elif text.lower() == 'mymid':
                                 client.sendMessage(msg.to,"[MID]\n" +  clientMID)
                             elif text.lower() == 'myname':
