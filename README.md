@@ -1,24 +1,18 @@
-# selfbot-py3
+[TΣΔM SLΔCҜβΩT] Anda diundang untuk bergabung dengan sebuah Square LINE. 
 
-°`DOWNLOAD APP TERMUX DI PLAY STORE YEH`°
+https://line.me/ti/g2/LMAIQCF1K0
+# INSTALL MODULED TEMUX :
 
-
-INSTALL MODULED :
-- KETIK -> `pip install akad`
-- KETIK -> `pip install bs4`
-- KETIK -> `pip install gTTS`
-- KETIK -> `pip install requests`
-- KETIK -> `pip install rsa`
-- KETK -> `pip install thrift==0.11.0`
+# pip3 install akad
+# pip3 install bs4
+# pip3 install gTTS`
+# pip3 install requests
+# pip3 install rsa
+# pip3 install thrift==0.11.0
 
 #===========================
-`-IKUTI DI BAWAH INI-`
+# IKUTI CARA DI BAWAH INI
 
-- > git clone `https://github.com/zelebez6969/selfbot-py3.git`
-- > `cd selfbot-py3`
-- > `python3 sbpy3.py`
-
-`nanti muncul link tinggal copy lalu paste ke line dan klik dah buat login 😁`
-============================
-
-@zelebez6969
+# git clone https://github.com/Galank-07/Newself-py3
+# cd selfbot-py3`
+# python3 Selfpy3.py
