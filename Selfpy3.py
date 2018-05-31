@@ -10,7 +10,7 @@ from io import BytesIO, UnsupportedOperation
 
 #client = LineClient()
 #client = LineClient(id='EMAILMU', passwd='PASSWORDMU')
-client = LineClient(authToken='EtuzfGWBAoaRxGiKdd07.Egq9cEqQnOnQf8YrIwoOTW.xYMmiR7oPmoTdnZnN+qgojuXNjbp1oQGA10HpgYv54g=') 
+client = LineClient(authToken='TOKEN DESKTOPWIN SAYANG') 
 client.log("Auth Token : " + str(client.authToken))
 #========================================================
 channel = LineChannel(client)
@@ -28,6 +28,14 @@ backup.displayName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 #====================================
+# SCRIPT SELFBOT SEDERHANA
+# ASAL BISA MAININ BOT GEND
+# SYUKURI APA YANG ADA AJA
+# JOMBLO APALAH DAYA
+# ADD ME FOR LINE: fuck.you__
+# KEPO,IN AJA,LAGI GALAU BANGAT
+# JOIN TEAM BOT KALIAN DONK!!
+# INVITE AJA AKU ACC NTAR
 
 helpMessage ="""
 ╭════════╬╬════════╮
@@ -71,13 +79,14 @@ helpMessage ="""
 ╠⎆ Lurking reset
 ╠⎆ kick @
 ╠⎆ Selfbot 「on/off」
+╠⎆ Public 
 ╰════════╬╬════════╯
 ╭════════╬╬════════╮
 ╠⎆ CRΣΔTΩR βΨ:
 ╠⎆ 『✍͡➴͜Ĝα₤αηĸ͜͡✫』
 ╠⎆ sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ  : 
 ╠⎆ TΣΔM SLΔCҜβΩT
-╰════════╬♥╬════════╯
+╰════════╬╬════════╯
 line.me/ti/p/~fuck.you__
 """
 
