@@ -7,6 +7,8 @@ from gtts import gTTS
 from googletrans import Translator
 from urllib.parse import urlencode
 from io import BytesIO, UnsupportedOperation
+import youtube_dl
+from bs4 import BeautifulSoup
 
 #client = LineClient()
 #client = LineClient(id='EMAILMU', passwd='PASSWORDMU')
