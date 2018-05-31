@@ -8,9 +8,9 @@ from googletrans import Translator
 from urllib.parse import urlencode
 from io import BytesIO, UnsupportedOperation
 
-client = LineClient()
+#client = LineClient()
 #client = LineClient(id='EMAILMU', passwd='PASSWORDMU')
-#client = LineClient(authToken='TOKENMU') 
+client = LineClient(authToken='TOKENMU SAYANG') 
 client.log("Auth Token : " + str(client.authToken))
 #========================================================
 channel = LineChannel(client)
@@ -29,57 +29,56 @@ backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 #====================================
 
-helpMessage =""" ༺༽།☤ⵓః•LIβΣRΔTI⌬Π•ఃⵓ☤།༼༻
-╭════════╬♥╬════════╮
-                       ʜᴇʟᴘ menu
+helpMessage ="""
+╭════════╬╬════════╮
+        ʜᴇʟᴘ menu
+╰════════╬╬════════╯
+╭════════╬╬════════╮
+╠⎆ Me
+╠⎆ Mymid
+╠⎆ Myname
+╠⎆ Mybio
+╠⎆ Mypicture
+╠⎆ Myvideoprofile
+╠⎆ Mycover
+╠⎆ Stealprofile「@」
+╠⎆ Unsend me
+╠⎆ Getsq
+╠⎆ Lc 「@」
+╠⎆ Gc 「@」
+╠⎆ Sticker: 「angka」
+╠⎆ Yt: 「text」
+╠⎆ Image: 「text」
+╠⎆ Gcreator
+╠⎆ Say: t 「text」
+╠⎆ Apakah 「text」
+╠⎆ Sytr: 「text」
+╠⎆ Tr: 「text」
+╠⎆ Speed
+╠⎆ Pict @
+╠⎆ Cover @
+╠⎆ Sc @
+╠⎆ Tagall
+╠⎆ Ceksider
+╠⎆ Offread
+╠⎆ Listgroup
+╠⎆ Restart
+╠⎆ Friendlist
+╠⎆ Cloneprofile @
+╠⎆ Restoreprofile
+╠⎆ Lurking 「on/off」
+╠⎆ Lurking
+╠⎆ Lurking reset
+╠⎆ kick @
+╠⎆ Selfbot 「on/off」
+╰════════╬╬════════╯
+╭════════╬╬════════╮
+╠⎆ CRΣΔTΩR βΨ:
+╠⎆ 『✍͡➴͜Ĝα₤αηĸ͜͡✫』
+╠⎆ sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ  : 
+╠⎆ TΣΔM SLΔCҜβΩT
 ╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-║♪「Myhelp」
-║♪「Me」
-║♪「 Mymid」
-║♪「 Myname」
-║♪「 Mybio」
-║♪「 Mypicture」
-║♪「 Myvideoprofile」
-║♪「 Mycover」
-║♪「 Stealprofile「@」
-║♪「Unsend me」
-║♪「 Getsq」
-║♪「Lc 「@」
-║♪「 Gc 「@」
-║♪「 Sticker: 「angka」
-║♪「 Yt: 「text」
-║♪「 Image: 「text」
-║♪「Gcreator」
-║♪「Say: text」
-║♪「 Apakah text」
-║♪「 Sytr: text」
-║♪「 Tr: text」
-║♪「 Speed」
-║♪「 Spic @」
-║♪「 Scover @」
-║♪「 Tagall」
-║♪「 Ceksider」
-║♪「 Offread」
-║♪「Listgroup」
-║♪「 Restart」
-║♪「 Friendlist」
-║♪「 Cloneprofile @」
-║♪「 Restoreprofile」
-║♪「 Lurking on」
-║♪「 Lurking」
-║♪「 lurking off」
-║♪「 Lurking reset」
-║♪「 kick @」
-║♪「 Mode:self」
-║♪「 Mode:public」
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-          🔪JANGAN ADA TYPO 🔪
-╰════════╬♥╬════════╯
-╭════════╬♥╬════════╮
-     http://line.me/ti/p/KTS6MCiOZe
-╰════════╬♥╬════════╯
+line.me/ti/p/~fuck.you__
 """
 
 poll = LinePoll(client)
@@ -230,6 +229,63 @@ while True:
                                     textt = bb.text
                                     client.sendText(receiver, 'Link: ' + str(cc) + '\nText: ' + str(textt) + '\nMaker: ' + str(aa))
 #----------------Commandtambahan----------------------#
+     # mmid = msg.text.replace("Mc ","")
+                    #sendContact(to, mmid)
+                    elif "Sc " in msg.text:
+                    ggid = msg.text.replace("Sc ","")
+                    group = client.getGroup(ggid)
+                    try:
+                        gCreator = group.creator.displayName
+                    except:
+                        gCreator = "Tidak di kenal "
+                    if group.invitee is None:
+                        gPending = "0"
+                    else:
+                        gPending = str(len(group.invitee))
+                    if group.preventedJoinByTicket == True:
+                        gQr = "Open "
+                        gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
+                    else:
+                        gQr = "Close" 
+                        gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
+                    path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
+                    ret_ = "[Information ]"
+                    ret_ += "\nNama        : {}".format(str(group.name))
+                    ret_ += "\nＩＤ           : {}".format(group.id)
+                    ret_ += "\nCreator    : {}".format(str(gCreator))
+                    ret_ += "\nMember   : {}".format(str(len(group.members)))
+                    ret_ += "\nPending    : {}".format(gPending)
+                    ret_ += "\nQr               : {}".format(gQr)
+                    ret_ += "\nUrl              : {}".format(gTicket)
+                    ret_ += "\n[End Information ]"
+                    client.sendMessage(to, str(ret_))
+                    client.sendImageWithURL(to, path)
+               # .sendMessage(to, "Ngesot Selama {}".format(str(runtime)))                    
+                elif text.lower() == 'about':
+                    try:
+                        arr = []
+                        owner = "u78643d09e42a36836a17cc918963a8b7"
+                        creator = client.getContact(owner)
+                        contact = client.getContact(clientMID)
+                        grouplist = client.getGroupIdsJoined()
+                        contactlist = client.getAllContactIds()
+                        blockedlist = client.getBlockedContactIds()
+                        ret_ = " 『✍͡➴͜Ĝα₤αηĸ͜͡✫』 "
+                        ret_ += "\nNama            : {}".format(contact.displayName)
+                        ret_ += "\nGc                  : {}".format(str(len(grouplist)))
+                        ret_ += "\nCont               : {}".format(str(len(contactlist)))
+                        ret_ += "\nBlock             : {}".format(str(len(blockedlist)))
+                        ret_ += "\n ➡ "
+                        ret_ += "\nTentang        : TΣΔM SLΔCҜβΩT"
+                        ret_ += "\nFormat          : {}".format(creator.displayName)
+                        ret_ += "\n 『✍͡➴͜Ĝα₤αηĸ͜͡✫』 "
+                        client.sendMessage(to, str(ret_)
+                elif text.lower() == 'creator':
+                    client.sendMessage(to, "My Creator:")
+                    client.sendContact(to, "u78643d09e42a36836a17cc918963a8b7")
+                    #except Exception as e:
+                      #  client.sendMessage(msg.to, str(e))
+                
                             elif msg.text in ["Listgroup"]:
                                gid = client.getGroupIdsJoined()
                                h = ""
@@ -339,7 +395,7 @@ while True:
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
 #============================================================#HELPSTART#=========================================================#
-                            elif text.lower() == 'myhelp':
+                            elif text.lower() == 'help':
                                 client.sendText(msg.to,helpMessage)
                                 print ("[COMMAND] HELP")
                                 
@@ -428,10 +484,10 @@ while True:
                                     client.sendText(receiver, str(e))
                             elif text.lower() == 'speed':
                                 start = time.time()
-                                client.sendText(receiver, "TestSpeed")
+                                client.sendText(receiver, "██████████████99%Complete")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'pict' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -442,7 +498,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'cover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -519,11 +575,11 @@ while True:
                                     client.sendText(receiver, cctv['sidermem'][msg.to])
                                 else:
                                     client.sendText(receiver, "Heh belom di Set")
-                            elif text.lower() == 'mode:self':
+                            elif text.lower() == 'selfbot off':
                                 mode = 'self'
                                 client.sendText(receiver, 'Mode Public Off')
-                            elif text.lower() == 'mode:public':
-                                mode = 'public'
+                            elif text.lower() == 'selfbot on':
+                                mode = 'publick'
                                 client.sendText(receiver, 'Mode Public ON')
                             elif text.lower() == 'restart':
                                 restart_program()
