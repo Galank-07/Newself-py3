@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from LIBERATION import *
+from GALANK07 import *
 from datetime import datetime
 import json, time, random, tempfile, os, sys, pytz
 import codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast
