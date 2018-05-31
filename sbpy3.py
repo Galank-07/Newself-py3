@@ -169,208 +169,6 @@ while True:
             #if op.type in OpType._VALUES_TO_NAMES:
             #    print("[ {} ] {}".format(str(op.type), str(OpType._VALUES_TO_NAMES[op.type])))
 #=========================================================================================================================================#
-#╚════════════●
-#    return helpMessageKick
-def lineBot(op):
-    try:
-        if op.type == 0:
-            return
-        if op.type == 5:
-            contact = araragi.getContact(op.param1)
-            print ("[ 5 ] Notice Add Contact : " + contact.displayName)
-            if settings["autoAdd"] == True:
-                araragi.findAndAddContactsByMid(op.param1)
-                araragi.sendMessage(op.param1, "Terimakasih Telah Invite 👌😳".format(str(contact.displayName)))
-                araragi.sendMessage(op.param1, "Jangan Nakalin dedek,  Achu Masih polos kakak 😳^^")
-        if op.type == 11:
-            group = Galank.getGroup(op.param1)
-            contact = Galank.getContact(op.param2)
-            if settings["qrprotect"] == True:
-                if op.param2 in admin:
-                    pass
-                else:
-                    gs = Galank.getGroup(op.param1)
-                    gs.preventJoinByTicket = True
-                    Galank.updateGroup(gs)
-                    invsend = 0
-                    Galank.sendMessage(op.param1,Galank.getContact(op.param2).displayName + "Astaga,Bangsat jangan buka qr babik")
-                    Galank.kickoutFromGroup(op.param1,[op.param2])
-        if op.type == 13:
-            contact1 = Galank.getContact(op.param2)
-            contact2 = Galank.getContact(op.param3)
-            group = Galank.getGroup(op.param1)
-            if settings["inviteprotect"] == True:
-                if op.param2 in admin:
-                    pass
-                else:
-                    Galank.cancelGroupInvitation(op.param1,[op.param3])
-                    time.sleep(0.15)
-                    Galank.kickoutFromGroup(op.param1,[op.param3])
-                    time.sleep(0.15)
-                    Galank.kickoutFromGroup(op.param1,[op.param2])
-            if GalankMID in op.param3:
-                if settings["autoJoin"] == True:
-                    try:
-                        arrData = ""
-                        text = "%s "%('[on]')
-                        arr = []
-                        mention = "@x "
-                        slen = str(len(text))
-                        elen = str(len(text) + len(mention) - 1)
-                        arrData = {'S':slen, 'E':elen, 'M':op.param2}
-                        arr.append(arrData)
-                        text += mention + "\nAssalamualaikum.. "
-                        Galank.acceptGroupInvitation(op.param1)
-                        Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
-                        Galank.sendMessage(op.param1, "Created ：")
-                        Galank.sendContact(op.param1, "u78643d09e42a36836a17cc918963a8b7")
-                    except Exception as error:
-                        print(error)
-            if GalankMID in op.param3:
-                if settings["autoPtt"] == True:
-                    Galank.acceptGroupInvitation(op.param1)
-                    Galank.sendMessage(op.param1, "SeeYou...")
-                    Galank.leaveGroup(op.param1)
-        if op.type == 15:
-            contact1 = Galank.getContact(op.param2)
-            group = Galank.getGroup(op.param1)
-            if settings["seeLeave"] == True:
-                try:
-                    arrData = ""
-                    text = "%s "%('[Hallo.. ]')
-                    arr = []
-                    mention = "@x "
-                    slen = str(len(text))
-                    elen = str(len(text) + len(mention) - 1)
-                    arrData = {'S':slen, 'E':elen, 'M':op.param2}
-                    arr.append(arrData)
-                    text += mention + "Nah kan baper?Gak di Desahin kali di{} ！".format(str(group.name))
-                    Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
-                except Exception as error:
-                    print(error)
-        if op.type == 17:
-            contact1 = Galank.getContact(op.param2)
-            group = Galank.getGroup(op.param1)
-            if settings["seeJoin"] == True:
-                try:
-                    arrData = ""
-                    text = "%s "%('Halo')
-                    arr = []
-                    mention = "@x "
-                    slen = str(len(text))
-                    elen = str(len(text) + len(mention) - 1)
-                    arrData = {'S':slen, 'E':elen, 'M':op.param2}
-                    arr.append(arrData)
-                    text += mention + "Cek note ya kakak Baca Rules nya！".format(str(group.name))
-                    Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
-                except Exception as error:
-                    print(error)
-        if op.type == 19:
-            contact1 = Galank.getContact(op.param2)
-            group = Galank.getGroup(op.param1)
-            contact2 = Galank.getContact(op.param3)
-            print ("[19] Notice Kick Out From Group: " + str(group.name) + "\n" + op.param1 +"\nNama: " + contact1.displayName + "\nMid:" + contact1.mid + "\nNama: " + contact2.displayName + "\nMid:" + contact2.mid )
-            if settings["protect"] == True:
-                if op.param2 in admin:
-                    pass
-                else:
-                    if settings["kickContact"] == True:
-                        Galank.kickoutFromGroup(op.param1,[op.param2])
-                        settings["blacklist"][op.param2] = True
-                        time.sleep(0.1)
-                        Galank.sendMessage(op.param1, "[Bangsat] %s Kick %s"%(contact1.displayName,contact2.displayName))
-                        Galank.sendMessage(op.param1, "Pelaku：")
-                        sendMessageWithMention(op.param1, contact1.mid)
-                        Galank.sendMessage(op.param1, " Korban：")
-                        sendMessageWithMention(op.param1, contact2.mid)
-                    else:
-                        Galank.kickoutFromGroup(op.param1,[op.param2])
-                        settings["blacklist"][op.param2] = True
-                        time.sleep(0.1)
-            else:
-                if settings["kickContact"] == True:
-                    Galank.sendMessage(op.param1, "[Babik] %s  Kick%s"%(contact1.displayName,contact2.displayName))
-                    Galank.sendMessage(op.param1, " Pelaku：")
-                    sendMessageWithMention(op.param1, contact1.mid)
-                    Galank.sendMessage(op.param1, "Korban：")
-                    sendMessageWithMention(op.param1, contact2.mid)
-                else:
-                    pass
-        if op.type == 22:
-            print ("[ 22 ] Notice Leave Group")
-            if settings["autoLeave"] == True:
-                Galank.leaveRoom(op.param1)
-        if op.type == 1:
-            print ("[1] NOTICED File Konfigurasi ")
-        if op.type == 26 or op.type == 25:
-            msg = op.message
-            text = msg.text
-            msg_id = msg.id
-            receiver = msg.to
-            sender = msg._from
-            if msg.toType == 0:
-                if sender != araragi.profile.mid:
-                    to = sender
-                else:
-                    to = receiver
-            else:
-                to = receiver
-            if msg.contentType == 7:
-               if settings["checkSticker"] == True:
-                    stk_id = msg.contentMetadata['STKID']
-                    stk_ver = msg.contentMetadata['STKVER']
-                    pkg_id = msg.contentMetadata['STKPKGID']
-                    path = "https://stickershop.line-scdn.net/stickershop/v1/sticker/{}/ANDROID/sticker.png;compress=true".format(stk_id)
-                    ret_ = "[ Info ]"
-                    ret_ += "\n⊙ID       : {}".format(stk_id)
-                    ret_ += "\n⊙ID       : {}".format(pkg_id)
-                    ret_ += "\n⊙Url     : line://shop/detail/{}".format(pkg_id)
-                    ret_ += "\n⊙PicUrl：https://stickershop.line-scdn.net/stickershop/v1/sticker/{}/ANDROID/sticker.png;compress=true".format(stk_id)
-                    ret_ += "\n[ By : 『✍͡➴͜Ĝα₤αηĸ͜͡✫』: TΣΔM SLΔCҜβΩT ]"
-                    Galank.sendMessage(to, str(ret_))
-                    Galank.sendImageWithURL(to, path)
-            if msg.contentType == 13:
-                if settings["contact"] == True:
-                    #msg.contentType = 0
-                    if 'displayName' in msg.contentMetadata:
-                        contact = Galank.getContact(msg.contentMetadata["mid"])
-                        try:
-                            cu = Galank.getProfileCoverURL(msg.contentMetadata["mid"])
-                        except:
-                            cu = ""
-                        Galank.sendMessage(msg.to,"[ Nama ]:\n" + msg.contentMetadata["displayName"] + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[Check]:\n" + contact.statusMessage + "\n[ Url ]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[ Cover ]:\n" + str(cu))
-                    else:
-                        contact = Galank.getContact(msg.contentMetadata["mid"])
-                        try:
-                            cu = Galank.getProfileCoverURL(msg.contentMetadata["mid"])
-                        except:
-                            cu = ""
-                        Galank.sendMessage(msg.to,"[ Nama ]:\n" + contact.displayName + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[ Check ]:\n" + contact.statusMessage + "\n[ Url ]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[ Cover ]:\n" + str(cu))
-            elif msg.contentType == 16:
-                if settings["timeline"] == True:
-                    try:
-                        msg.contentType = 0
-                        f_mid = msg.contentMetadata["postEndUrl"].split("userMid=")
-                        s_mid = f_mid[1].split("&")
-                        mid = s_mid[0]
-                        try:
-                            arrData = ""
-                            text = "%s\n%s\n"%("---[Post Share ]---","[ Creator ]:")
-                            arr = []
-                            mention = "@x "
-                            slen = str(len(text))
-                            elen = str(len(text) + len(mention) - 1)
-                            arrData = {'S':slen, 'E':elen, 'M':mid}
-                            arr.append(arrData)
-                            text += mention + "\n[ Keterangan ]:\n" + msg.contentMetadata["text"] + "\n(by : TΣΔM SLΔCҜβΩT )" + "\n[ Url ]:\n" + msg.contentMetadata["postEndUrl"]
-                            Galank.sendMessage(msg.to,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
-                        except Exception as error:
-                            print(error)
-                    except:
-                        ret_ = "---[Artikel]---\n[Keterangan]:\n" + msg.contentMetadata["text"] + "\n(by : TΣΔM SLΔCҜβΩT )"
-                        ret_ += "\n[]:\n" + msg.contentMetadata["postEndUrl"]
-                        Galank.sendMessage(msg.to, str(ret_))
-
             if op.type == 25:
                 msg = op.message
                 text = msg.text
@@ -1096,6 +894,164 @@ def lineBot(op):
                 except Exception as e:
                     Galank.log("[SEND_MESSAGE] ERROR : " + str(e))
 #=========================================================================================================================================#
+#(op):
+    #try:
+        if op.type == 0:
+            return
+        if op.type == 5:
+            contact = Galank.getContact(op.param1)
+            print ("[ 5 ] Notice Add Contact : " + contact.displayName)
+            if settings["autoAdd"] == True:
+                Galank.findAndAddContactsByMid(op.param1)
+                Galank.sendMessage(op.param1, "Terimakasih Telah Invite 👌😳".format(str(contact.displayName)))
+                Galank.sendMessage(op.param1, "Jangan Nakalin dedek,  Achu Masih polos kakak 😳^^")
+        if op.type == 11:
+            group = Galank.getGroup(op.param1)
+            contact = Galank.getContact(op.param2)
+            if settings["qrprotect"] == True:
+                if op.param2 in admin:
+                    pass
+                else:
+                    gs = Galank.getGroup(op.param1)
+                    gs.preventJoinByTicket = True
+                    araragi.updateGroup(gs)
+                    invsend = 0
+                    Galank.sendMessage(op.param1,Galank.getContact(op.param2).displayName + "Heh kutil babik jangan buka qr ！")
+                    Galank.kickoutFromGroup(op.param1,[op.param2])
+        if op.type == 13:
+            contact1 = Galank.getContact(op.param2)
+            contact2 = Galank.getContact(op.param3)
+            group = Galank.getGroup(op.param1)
+            if settings["inviteprotect"] == True:
+                if op.param2 in admin:
+                    pass
+                else:
+                    Galank.cancelGroupInvitation(op.param1,[op.param3])
+                    time.sleep(0.15)
+                    Galank.kickoutFromGroup(op.param1,[op.param3])
+                    time.sleep(0.15)
+                    Galank.kickoutFromGroup(op.param1,[op.param2])
+            if GalankMID in op.param3:
+                if settings["autoJoin"] == True:
+                    try:
+                        arrData = ""
+                        text = "%s "%('[on]')
+                        arr = []
+                        mention = "@x "
+                        slen = str(len(text))
+                        elen = str(len(text) + len(mention) - 1)
+                        arrData = {'S':slen, 'E':elen, 'M':op.param2}
+                        arr.append(arrData)
+                        text += mention + "\nAssalamualaikum.. "
+                        Galank.acceptGroupInvitation(op.param1)
+                        Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+                        Galank.sendMessage(op.param1, "Created ：")
+                        Galank.sendContact(op.param1, "u78643d09e42a36836a17cc918963a8b7")
+                    except Exception as error:
+                        print(error)
+            if GalankMID in op.param3:
+                if settings["autoPtt"] == True:
+                    Galank.acceptGroupInvitation(op.param1)
+                    Galank.sendMessage(op.param1, "SeeYou...")
+                    Galank.leaveGroup(op.param1)
+        if op.type == 15:
+            contact1 = Galank.getContact(op.param2)
+            group = Galank.getGroup(op.param1)
+            if settings["seeLeave"] == True:
+                try:
+                    arrData = ""
+                    text = "%s "%('[Hallo.. ]')
+                    arr = []
+                    mention = "@x "
+                    slen = str(len(text))
+                    elen = str(len(text) + len(mention) - 1)
+                    arrData = {'S':slen, 'E':elen, 'M':op.param2}
+                    arr.append(arrData)
+                    text += mention + "Good Bye Kakak Semoga Amal ibadah mu cukup 😳{} ！".format(str(group.name))
+                    Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+                except Exception as error:
+                    print(error)
+        if op.type == 17:
+            contact1 = Galank.getContact(op.param2)
+            group = Galank.getGroup(op.param1)
+            if settings["seeJoin"] == True:
+                try:
+                    arrData = ""
+                    text = "%s "%('Halo')
+                    arr = []
+                    mention = "@x "
+                    slen = str(len(text))
+                    elen = str(len(text) + len(mention) - 1)
+                    arrData = {'S':slen, 'E':elen, 'M':op.param2}
+                    arr.append(arrData)
+                    text += mention + "Cek note ya kakak Baca Rules nya！".format(str(group.name))
+                    Galank.sendMessage(op.param1,text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+                except Exception as error:
+                    print(error)
+        if op.type == 19:
+            contact1 = Galank.getContact(op.param2)
+            group = Galank.getGroup(op.param1)
+            contact2 = Galank.getContact(op.param3)
+            print ("[19] Notice Kick Out From Group: " + str(group.name) + "\n" + op.param1 +"\nNama: " + contact1.displayName + "\nMid:" + contact1.mid + "\nNama: " + contact2.displayName + "\nMid:" + contact2.mid )
+            if settings["protect"] == True:
+                if op.param2 in admin:
+                    pass
+                else:
+                    if settings["kickContact"] == True:
+                        Galank.kickoutFromGroup(op.param1,[op.param2])
+                        settings["blacklist"][op.param2] = True
+                        time.sleep(0.1)
+                        Galank.sendMessage(op.param1, "[Dangger] %s Kick %s"%(contact1.displayName,contact2.displayName))
+                        Galank.sendMessage(op.param1, "Kick：")
+                        sendMessageWithMention(op.param1, contact1.mid)
+                        Galank.sendMessage(op.param1, " Kicker：")
+                        sendMessageWithMention(op.param1, contact2.mid)
+                    else:
+                        Galank.kickoutFromGroup(op.param1,[op.param2])
+                        settings["blacklist"][op.param2] = True
+                        time.sleep(0.1)
+            else:
+                if settings["kickContact"] == True:
+                    Galank.sendMessage(op.param1, "[Dangger] %s  Kick%s"%(contact1.displayName,contact2.displayName))
+                    Galank.sendMessage(op.param1, " kick：")
+                    sendMessageWithMention(op.param1, contact1.mid)
+                    Galank.sendMessage(op.param1, "Kicker：")
+                    sendMessageWithMention(op.param1, contact2.mid)
+                else:
+                    pass
+        if op.type == 22:
+            print ("[ 22 ] Notice Leave Group")
+            if settings["autoLeave"] == True:
+                Galank.leaveRoom(op.param1)
+        if op.type == 1:
+            print ("[1] NOTICED File Konfigurasi ")
+        if op.type == 26 or op.type == 25:
+            msg = op.message
+            text = msg.text
+            msg_id = msg.id
+            receiver = msg.to
+            sender = msg._from
+            if msg.toType == 0:
+                if sender != Galank.profile.mid:
+                    to = sender
+                else:
+                    to = receiver
+            else:
+                to = receiver
+            if msg.contentType == 7:
+               if settings["checkSticker"] == True:
+                    stk_id = msg.contentMetadata['STKID']
+                    stk_ver = msg.contentMetadata['STKVER']
+                    pkg_id = msg.contentMetadata['STKPKGID']
+                    path = "https://stickershop.line-scdn.net/stickershop/v1/sticker/{}/ANDROID/sticker.png;compress=true".format(stk_id)
+                    ret_ = "[ Info ]"
+                    ret_ += "\nID       : {}".format(stk_id)
+                    ret_ += "\nID       : {}".format(pkg_id)
+                    ret_ += "\nUrl     : line://shop/detail/{}".format(pkg_id)
+                    ret_ += "\nPicUrl：https://stickershop.line-scdn.net/stickershop/v1/sticker/{}/ANDROID/sticker.png;compress=true".format(stk_id)
+                    ret_ += "\n[ By : 『✍͡➴͜Ĝα₤αηĸ͜͡✫』: TΣΔM SLΔCҜβΩT ]"
+                    Galank.sendMessage(to, str(ret_))
+                    Galank.sendImageWithURL(to, path)
         if op.type == 26:
             try:
                 msg = op.message
